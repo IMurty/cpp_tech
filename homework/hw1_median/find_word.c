@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
-#include "find_word.h"
 
-// typedef enum {false, true} bool; ?
+typedef enum {false, true} bool;
+
 
 int get_count_word_in_file(const char* word, const char* file);
 int compare(const void * x1, const void * x2);
@@ -23,9 +22,10 @@ int get_count_word_in_file(const char* word, const char* file) {
 	bool is_word = true;
 	int count_of_characters_read = 0;
 	const unsigned int word_len = strlen(word);
-	//? char* candidate_word = (char*)malloc(word_len + 1);
-	//? if (candidate_word == NULL) return -1;
-	char candidate_word[word_len + 1];
+	char* candidate_word = (char*)malloc(word_len + 1);
+		if (candidate_word == NULL) {
+			return -1;
+		}
 	unsigned int cw_iter = 0;
 	
 	while ((count_of_characters_read = fread(buffer, 1, sizeof(buffer), p_file)) != 0){
@@ -61,23 +61,26 @@ int get_count_word_in_file(const char* word, const char* file) {
 	if (cw_iter != 0 && is_word && strcmp(word, candidate_word) == 0) {
 		count++;
 	}
-	// ? free(candidate_word);
-    fclose(p_file);
+	free(candidate_word);
+	fclose(p_file);
+	
     return count;
 }
 
 
-int compare(const void * x1, const void * x2)
-{
+int compare(const void * x1, const void * x2) {
 	return ( *(int*)x1 - *(int*)x2 );
 }
 
 
 float median(const char* word, const char** files, int files_count) {	
-	int* word_count_in_files = (int*)malloc(sizeof(int) * files_count);
-	if (word_count_in_files == NULL) return -1;
+	int* word_count_in_files = malloc(sizeof(int) * files_count);
+	if (word_count_in_files == NULL)
+	 {return -1;}
+	
 	int count = 0;
 	float result = 0;
+
     for(int i = 0; i < files_count; i++) {
 		if ((count = get_count_word_in_file(word, files[i])) != -1) {
 			word_count_in_files[i] = count;
@@ -88,13 +91,17 @@ float median(const char* word, const char** files, int files_count) {
 			return -1;
 		}
     }
+	
 	qsort(word_count_in_files, files_count, sizeof(int), compare);
+	
 	if (files_count % 2 == 0) {
 		result = (word_count_in_files[files_count / 2 - 1] + word_count_in_files[files_count / 2]) / 2.0;
 	}
 	else {
 		result = word_count_in_files[files_count / 2];
 	}
+	
 	free(word_count_in_files);
+	
 	return result;
 }

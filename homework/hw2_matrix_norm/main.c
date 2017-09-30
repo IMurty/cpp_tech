@@ -1,66 +1,66 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum errors{
-    FO_ERROR = 1,
-    GET_NORM_ERROR
-};
-int get_norm(const char* file) {
-    FILE* p_file = fopen(file, "r");
-    if(p_file == NULL) {
-        printf("Can't open file %s \n", file);
-        return FO_ERROR;
-    }
-    int res = 0;
-    return res;
+
+double get_norm(const double** matr, int row_count, int col_count) {
+    float mat = matr[0][0];
+    int r = row_count;
+    int c = col_count;
+    return c + r + mat;
 }
 
 
-int get_norms(int* arr,int count, const char* files[]) {
-    for (int i = 0; i < count; i++) {
-        int res = get_norm(files[i]);
-        if (res != FO_ERROR) {
-            arr[i] = res; 
-        }
-        else {
-            return GET_NORM_ERROR;
-        } 
-    }
-    return 0;
+void set_elem(double** matr, int row, int col, double elem) {
+    matr[row][col] = elem;
+    printf("matr[%d][%d] = %lf\n", row, col, matr[row][col]);
 }
+
 
 int main(int argc, const char* argv[]) {
-    int* norms_of_matrixes = calloc(argc - 1, sizeof(int));
-    if (norms_of_matrixes == NULL) {
-        goto complate_program;
-    }
-    for (int i = 1; i < argc; i++) {
+ 
+    for (int file_counter = 1; file_counter < argc; ++file_counter) {
 
-        FILE* p_file = fopen(argv[i], "r");
+        FILE* p_file = fopen(argv[file_counter], "r");
         if (p_file == NULL) {
-            printf("Can't open file %s\n", argv[1]);
-            goto complate_program;
+            printf("Can't open file %s\n", argv[file_counter]);
+            return 0;
         }
+
         int row_count = 0;
         int col_count = 0;
-        int reading_checker = fscanf(p_file, "%d \n %d \n", &row_count, &col_count);
-        if (reading_checker == -1) {
-            printf("Invalid values in file [%s]\n", argv[i]);
-            goto complate_program;
+        
+        if (fscanf(p_file, "%d \n %d \n", &row_count, &col_count) != 2) {
+            printf("Invalid values in file [%s]\n", argv[file_counter]);
+            return 0;
         }
-        float **matr = malloc(row_count * sizeof(float*));
+        
+        double **matr = malloc(row_count * sizeof(float*));
         for (int j = 0; j < row_count; ++j) {
             matr[j] = malloc(col_count * sizeof(float));
         }
-        for (int k = 0; k < row_count * col_count; ++k) {
-            float val = 0;
-            fscanf(p_file, "%f", &val);
-            printf("%f\n", val);
-        }
+
+        for (int row = 0; row < row_count; ++row) {
+            for (int col = 0; col < col_count; ++col) {
+                double elem = 0;
+                if (fscanf(p_file, "%lf", &elem) != 1) {
+                    printf("Invalid values in file [%s]\n", argv[file_counter]);
+                    free(matr);                                                             // !!!add free in loop
+                    goto complate_loop;
+                };
+                set_elem(matr, row, col, elem);
+            }
+        }   
+        double res = get_norm((const double**)matr, row_count, col_count);
+        printf("matrix norm in file [%s] = %lf \n", argv[file_counter], res);
+
+        complate_loop:
+        for (int i = 0; i < row_count; ++i) {
+            free(matr[i]);
+        };
+        free(matr);
         fclose(p_file);
-    }
-    complate_program:
-    free(norms_of_matrixes);
+    } // for (int file_counter = 1; file_counter < argc; ++file_counter)
+
     
     return 0;
 }

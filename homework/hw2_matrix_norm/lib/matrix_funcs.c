@@ -17,6 +17,7 @@ void print_matrix(const double** matrix, int row_count, int col_count);
  * The norm of matrix, in this case, is the maximum
  * sum of column elements
 */
+
 double get_norm(const double** matrix, int row_count, int col_count) {
     double max_sum = 0;
     double cur_sum = 0;
@@ -63,7 +64,6 @@ void print_matrix(const double** matrix, int row_count, int col_count) {
 }
 
 /*============================================================================*/
-
 /**
  * Fills the matrix from a file 
  * Returns [0/1]: 

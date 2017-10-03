@@ -15,9 +15,10 @@ int main(int argc, const char* argv[]) {
 
         int row_count = 0;
         int col_count = 0;
+        int c = 0;
+        if ((c = fscanf(file, "%d%*[ \n]%d%*[ \n]", &row_count, &col_count)) != 2) {
 
-        if (fscanf(file, "%d \n %d \n", &row_count, &col_count) != 2) {
-            printf("Invalid values in file [%s]\n", argv[file_counter]);
+            printf("Invalid values in file [%s], %d\n", argv[file_counter], c);
             return 0;
         }
         

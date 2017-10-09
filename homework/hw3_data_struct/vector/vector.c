@@ -22,7 +22,7 @@ int vector_count(vector *v) {
 }
 
 
-static int vector_resize(vector *v, bool inc){
+int vector_resize(vector *v, bool inc){
     int new_capacity = inc ? v->capacity + SIZE_VOLUME_INC: v->capacity - SIZE_VOLUME_INC;
     void *items = realloc(v->items, sizeof(int) * new_capacity);
     if (items != NULL) {

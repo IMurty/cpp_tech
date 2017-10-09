@@ -30,7 +30,7 @@ int  *vector_get  (vector *v, int index);
 void vector_free  (vector *v);
 void vector_sort  (vector*v);
 
-static int  vector_resize(vector *v, bool inc );
+int  vector_resize(vector *v, bool inc );
 
 
 #endif //VECTOR_H

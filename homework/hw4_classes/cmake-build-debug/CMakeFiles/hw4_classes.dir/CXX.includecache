@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/murt/CLionProjects/hw4_classes/functions.cpp
+cstdio
+-
+iostream
+-
+cstring
+-
+fstream
+-
+functions.h
+/home/murt/CLionProjects/hw4_classes/functions.h
+
+/home/murt/CLionProjects/hw4_classes/functions.h
+person_class.h
+/home/murt/CLionProjects/hw4_classes/person_class.h
+
+/home/murt/CLionProjects/hw4_classes/main.cpp
+iostream
+-
+fstream
+-
+person_class.h
+/home/murt/CLionProjects/hw4_classes/person_class.h
+functions.h
+/home/murt/CLionProjects/hw4_classes/functions.h
+
+/home/murt/CLionProjects/hw4_classes/person_class.cpp
+person_class.h
+/home/murt/CLionProjects/hw4_classes/person_class.h
+iostream
+-
+
+/home/murt/CLionProjects/hw4_classes/person_class.h
+cstring
+-
+

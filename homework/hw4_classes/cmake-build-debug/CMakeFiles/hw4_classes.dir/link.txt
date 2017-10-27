@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/hw4_classes.dir/main.cpp.o CMakeFiles/hw4_classes.dir/person_class.cpp.o CMakeFiles/hw4_classes.dir/functions.cpp.o  -o hw4_classes 

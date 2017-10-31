@@ -14,14 +14,14 @@ double Plastic_card::get_balance() {
 
 double Plastic_card::withdraw_funds(double funds) {
     if (funds > balance) {
-        std::cerr << "__insufficient funds on the card" << std::endl;
+        std::cerr << "Plastic_Card_ERROR:\n\tinsufficient funds on the card" << std::endl;
         return 0;
     }
     return balance -= funds;
 }
 
 void Plastic_card::full_info() {
-    std::cout<<"Balance: "<< balance << std::endl;
+    std::cout<<"Plastic_card:\n\tBalance: "<< balance << std::endl;
 }
 
 /*
@@ -45,7 +45,7 @@ void Credit_card::full_info() {
 
 double Credit_card::withdraw_funds(double funds) {
     if ((balance - funds) < limit) {
-        std::cerr << "insufficient funds on the card" << std::endl;
+        std::cerr << "Credit_Card_ERROR:\n\tinsufficient funds on the card" << std::endl;
         return 0;
     }
     balance -= funds;

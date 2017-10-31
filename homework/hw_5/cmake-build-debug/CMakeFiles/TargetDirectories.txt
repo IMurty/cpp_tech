@@ -1,3 +1,0 @@
-/home/murt/CLionProjects/hw_5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/murt/CLionProjects/hw_5/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/murt/CLionProjects/hw_5/cmake-build-debug/CMakeFiles/hw_5.dir

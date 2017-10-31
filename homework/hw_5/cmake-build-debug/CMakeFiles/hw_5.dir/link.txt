@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/hw_5.dir/main.cpp.o CMakeFiles/hw_5.dir/queue_class.cpp.o  -o hw_5 

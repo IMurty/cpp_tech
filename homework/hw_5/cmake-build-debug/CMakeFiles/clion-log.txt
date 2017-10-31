@@ -1,4 +1,0 @@
-/home/murt/Programs/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/murt/CLionProjects/hw_5
--- Configuring done
--- Generating done
--- Build files have been written to: /home/murt/CLionProjects/hw_5/cmake-build-debug

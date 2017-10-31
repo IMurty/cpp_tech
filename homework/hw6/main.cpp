@@ -1,5 +1,7 @@
 #include <iostream>
-#include "cards.h"
+#include "plastic_card.h"
+#include "credit_card.h"
+#include "debit_card.h"
 
 const int cards_count = 1;
 
@@ -8,7 +10,7 @@ int main() {
     Plastic_card *cards[cards_count];
 
     //Credit cards
-    std::cout << "___Credit_card___" << std::endl;
+    std::cout << ">>> Credit_cards:" << std::endl;
     for (int i = 0; i < cards_count; ++i) {
         Credit_card *card = new Credit_card(5000 * (i + 1), -1000 * i);
         cards[i] = card;
@@ -22,7 +24,7 @@ int main() {
     }
 
     //Debit cards
-    std::cout << "___Debit_card___" << std::endl;
+    std::cout << ">>> Debit_cards:" << std::endl;
     for (int i = 0; i < cards_count; ++i) {
         Debit_card *card = new Debit_card(5000 * (i + 1));
         cards[i] = card;
@@ -34,12 +36,6 @@ int main() {
         cards[i]->full_info();
         std::cout << "_________________" << std::endl;
     }
-//    card.full_info();
-//    card.withdraw_funds(10);
-//    card.full_info();
-//    card.withdraw_funds(100);
-//    Credit_card cr(100, -100);
-//    cr.withdraw_funds(1000);
-//    cr.full_info();
+
     return 0;
 }

@@ -3,17 +3,19 @@
 
 
 Credit_card::Credit_card():
+        Plastic_card(),
         limit(0) {
-    balance = 0;
+    //balance = 0;
 };
 
 Credit_card::Credit_card(double blnc,double lmt):
+        Plastic_card(blnc),
         limit(lmt) {
-    balance = blnc;
+    //balance = blnc;
 };
 
 Credit_card::~Credit_card() {
-    
+
 }
 
 void Credit_card::full_info() {

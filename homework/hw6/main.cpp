@@ -16,7 +16,7 @@ int main() {
     }
 
     for (int i = 0; i < cards_count; ++i) {
-        cards[i]->Plastic_card::full_info();
+        cards[i]->full_info();
         cards[i]->withdraw_funds((i + 1) * 4000);
         cards[i]->full_info();
         std::cout << "_________________" << std::endl;
@@ -25,6 +25,7 @@ int main() {
     //Debit cards
     std::cout << ">> Debit_cards:" << std::endl;
     for (int i = 0; i < cards_count; ++i) {
+        delete cards[i];
         cards[i] = new Debit_card(5000 * (i + 1));
     }
 
@@ -34,6 +35,10 @@ int main() {
         cards[i]->full_info();
         std::cout << "_________________" << std::endl;
     }
-    delete[] cards;
+
+    for (int i = 0; i < cards_count; ++i) {
+        delete cards[i];
+    }
+    delete[] cards; // delete для каждого
     return 0;
 }

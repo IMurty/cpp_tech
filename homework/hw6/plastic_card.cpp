@@ -23,8 +23,8 @@ double Plastic_card::withdraw_funds(double funds) {
     return balance -= funds;
 }
 
-void Plastic_card::full_info() {
-    std::cout<<"Plastic_card:\tBalance: "<< balance << std::endl;
-}
+// void Plastic_card::full_info() {
+//     std::cout<<"Plastic_card:\tBalance: "<< balance << std::endl;
+// }
 
 

@@ -10,7 +10,7 @@ public:
     
     double get_balance();
     virtual double withdraw_funds(double funds);
-    virtual void full_info();
+    virtual void full_info() = 0;
 
 protected:
     double balance;

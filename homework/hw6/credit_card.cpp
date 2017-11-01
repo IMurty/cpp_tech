@@ -12,15 +12,20 @@ Credit_card::Credit_card(double blnc,double lmt):
     balance = blnc;
 };
 
+Credit_card::~Credit_card() {
+    
+}
+
 void Credit_card::full_info() {
-    std::cout << "\tBalance: " << balance
-              << "\n\tLimit: " << limit
+    std::cout << "Credit card info:"
+              << "\tBalance: " << balance
+              << "\tLimit: " << limit
               << std::endl;
 }
 
 double Credit_card::withdraw_funds(double funds) {
     if ((balance - funds) < limit) {
-        std::cerr << "Credit_Card_ERROR:\n\tinsufficient funds on the card" << std::endl;
+        std::cerr << "Credit_Card_ERROR: insufficient funds on the card" << std::endl;
         return 0;
     }
     balance -= funds;

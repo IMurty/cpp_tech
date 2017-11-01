@@ -6,8 +6,8 @@ class Plastic_card {
 public:
     Plastic_card();
     Plastic_card(double balance);
-
     virtual ~Plastic_card();
+    
     double get_balance();
     virtual double withdraw_funds(double funds);
     virtual void full_info();

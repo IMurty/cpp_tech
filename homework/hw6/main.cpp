@@ -3,31 +3,29 @@
 #include "credit_card.h"
 #include "debit_card.h"
 
-const int cards_count = 1;
+const int cards_count = 4;
 
 
 int main() {
-    Plastic_card *cards[cards_count];
+    Plastic_card **cards = new Plastic_card* [cards_count];
 
     //Credit cards
-    std::cout << ">>> Credit_cards:" << std::endl;
+    std::cout << ">> Credit_cards:" << std::endl;
     for (int i = 0; i < cards_count; ++i) {
-        Credit_card *card = new Credit_card(5000 * (i + 1), -1000 * i);
-        cards[i] = card;
+        cards[i] = new Credit_card(5000 * (i + 1), -1000 * i);
     }
 
     for (int i = 0; i < cards_count; ++i) {
-        cards[i]->full_info();
-        cards[i]->withdraw_funds((i + 1) * 6000);
+        cards[i]->Plastic_card::full_info();
+        cards[i]->withdraw_funds((i + 1) * 4000);
         cards[i]->full_info();
         std::cout << "_________________" << std::endl;
     }
 
     //Debit cards
-    std::cout << ">>> Debit_cards:" << std::endl;
+    std::cout << ">> Debit_cards:" << std::endl;
     for (int i = 0; i < cards_count; ++i) {
-        Debit_card *card = new Debit_card(5000 * (i + 1));
-        cards[i] = card;
+        cards[i] = new Debit_card(5000 * (i + 1));
     }
 
     for (int i = 0; i < cards_count; ++i) {
@@ -36,6 +34,6 @@ int main() {
         cards[i]->full_info();
         std::cout << "_________________" << std::endl;
     }
-
+    delete[] cards;
     return 0;
 }

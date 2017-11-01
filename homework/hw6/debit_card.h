@@ -13,6 +13,9 @@ public:
     Debit_card(int blnc): Plastic_card(blnc) {
 
     };
+    ~Debit_card() {
+        
+    }
 
 };
 

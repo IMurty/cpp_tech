@@ -8,6 +8,7 @@ class Credit_card: public Plastic_card {
 public:
     Credit_card();
     Credit_card(double blnc, double lmt);
+    ~Credit_card();
     double withdraw_funds(double funds);
     void full_info();
 private:

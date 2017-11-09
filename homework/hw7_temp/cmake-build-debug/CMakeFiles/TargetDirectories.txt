@@ -1,0 +1,3 @@
+/home/murt/cpp_tech/homework/hw7_temp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/murt/cpp_tech/homework/hw7_temp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/murt/cpp_tech/homework/hw7_temp/cmake-build-debug/CMakeFiles/hw7_temp.dir
